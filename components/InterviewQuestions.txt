@@ -1,0 +1,15 @@
+1. What is the DOM?
+    Document Object Model
+    The DOM is the HTML you write parsed by the browser. It treats HTML and XML as a tree structure where nodes represent parts of the document.
+
+2. What is an event?
+    It's an interaction with HTML that occur when the user or the browser manipulates a page.  A page load, a click, etc...
+
+3. What is an event listener?
+    Is a procedure or function in a computer program that waits for an event to occur.  Like a mouse click, a mouse over, pressing a key etc...
+
+4. Why would we convert a NodeList into an Array?
+    Because a NodeList can be used to access and manipulate DOM elements.
+
+5. What is a component?
+    Components are standalone and reusable pieces of code. They serve the same purpose as JS functions, but work in HTML via a render function.    
