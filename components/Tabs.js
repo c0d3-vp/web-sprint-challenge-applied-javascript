@@ -14,11 +14,20 @@ import axios from 'axios';
 
 axios
     .get('https://lambda-times-api.herokuapp.com/topics')
-    .then(({data}) = > {
-        newTab(data);
+    .then(({data}) => {
+        data.topics.forEach(topic => {
+            createTopics(topic)
+        });
     })
     .catch(function (error) {
         console.log('This is an error', error);
     })
 
-const tabTitles = document.querySelector('.topics')
+function createTopics(topic)  {
+    const tabTopic = document.createElement('div')
+    tabTopic.classList.add('tab')
+    tabTopic.textContent = topic
+    const tabTopics = document.querySelector('.topics')
+
+    tabTopics.appendChild(tabTopic)
+}

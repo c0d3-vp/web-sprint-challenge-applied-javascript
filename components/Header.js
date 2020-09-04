@@ -14,10 +14,10 @@
 function Header() {
     const headerContainer = document.querySelector('.header-container')
 
-    const header = document.createElement.add('div')
-    const date = document.createElement.add('span')
-    const title = document.createElement.add('h1')
-    const temp = document.createElement.add('span')
+    const header = document.createElement('div')
+    const date = document.createElement('span')
+    const title = document.createElement('h1')
+    const temp = document.createElement('span')
 
     header.appendChild(date)
     header.appendChild(title)
@@ -27,4 +27,4 @@ function Header() {
 
     headerContainer.appendChild(header)
 }
-
+Header()
