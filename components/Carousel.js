@@ -26,21 +26,23 @@
 const images = [
   "https://tk-assets.lambdaschool.com/ba687af4-3a1e-43d7-87b2-f30453264c9d_mountains.jpeg",
   "https://tk-assets.lambdaschool.com/8aa075b0-67cf-47ce-9a7f-8cc9d754675d_computer.jpeg",
-  "https://tk-assets.lambdaschool.com/5b7441c6-6e4b-4feb-a4ec-8dd2eb76238a_trees.jpeg", "https://tk-assets.lambdaschool.com/0b770382-d0eb-4465-8bf2-692a79fcda71_turntable.jpeg"
+  "https://tk-assets.lambdaschool.com/5b7441c6-6e4b-4feb-a4ec-8dd2eb76238a_trees.jpeg",
+  "https://tk-assets.lambdaschool.com/0b770382-d0eb-4465-8bf2-692a79fcda71_turntable.jpeg"
 ]
 
-function carouselMaker(param) {
+function carouselMaker() {
   const carouselContainer = document.querySelector('.carousel-container')
 
   const carousel = document.createElement('div')
   const leftButton = document.createElement('div')
   const rightButton = document.createElement('div')
-
+  const imageElements = []
+  
   carousel.classList.add('carousel')
   leftButton.classList.add('left-button')
   rightButton.classList.add('right-button')
   
-  carousel.innerText = 'Carousel'
+  //carousel.innerText = 'Carousel'
   // leftButton.textContent = 'Left Button'
   // rightButton.innerText = 'right Button'
   
@@ -51,22 +53,37 @@ function carouselMaker(param) {
     let image = document.createElement('img')
     image.src = item
     carousel.appendChild(image)
+    imageElements.push(image);
 
     carouselContainer.appendChild(carousel)
+  })
 
-    leftButton.addEventListener('click', function(event) {
-      let styles = event.target.style
-      styles.color = 'orange';
-      styles.border = '2px dotted blue'
-    })
+  let currentImageIndex = 0;
 
-    rightButton.addEventListener('dblclick', function(event) {
-      let otherStyles = event.target.style
-      otherStyles.color = 'blue';
-      otherStyles.border = '2px dotted orange'
-    })
+  function hideCarouselImages() {
+    imageElements.forEach((image) => image.style.display = 'none')
+  }
+
+  leftButton.addEventListener('click', function() {
+    hideCarouselImages()
+    if (currentImageIndex - 1 >= 0) {
+      imageElements[currentImageIndex--].style.display = 'block';
+    } else {
+      currentImageIndex = imageElements.length - 1;
+      imageElements[currentImageIndex].style.display = 'block';
+    }
+  })
+
+  rightButton.addEventListener('click', function() {
+    hideCarouselImages()
+    if (currentImageIndex + 1 <= imageElements.length) {
+      imageElements[currentImageIndex++].style.display = 'block';
+    } else {
+      currentImageIndex = 0;
+      imageElements[currentImageIndex].style.display = 'block';
+    }
   })
 
 }
-carouselMaker(images)
+carouselMaker()
 
