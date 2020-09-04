@@ -29,7 +29,7 @@ const images = [
   "https://tk-assets.lambdaschool.com/5b7441c6-6e4b-4feb-a4ec-8dd2eb76238a_trees.jpeg", "https://tk-assets.lambdaschool.com/0b770382-d0eb-4465-8bf2-692a79fcda71_turntable.jpeg"
 ]
 
-function carouselMaker() {
+function carouselMaker(param) {
   const carouselContainer = document.querySelector('.carousel-container')
 
   const carousel = document.createElement('div')
@@ -39,22 +39,34 @@ function carouselMaker() {
   carousel.classList.add('carousel')
   leftButton.classList.add('left-button')
   rightButton.classList.add('right-button')
-
+  
+  carousel.innerText = 'Carousel'
+  leftButton.textContent = 'Left Button'
+  rightButton.innerText = 'right Button'
+  
   carousel.appendChild(leftButton)
   carousel.appendChild(rightButton)
-
-  carouselContainer.appendChild(carousel)
-
+  
   images.forEach(item => {
     let image = document.createElement('img')
     image.src = item
     carousel.appendChild(image)
 
+    carouselContainer.appendChild(carousel)
+
+    leftButton.addEventListener('click', function(event) {
+      let styles = event.target.style
+      styles.color = 'orange';
+      styles.border = '2px dotted blue'
+    })
+
+    leftButton.addEventListener('click', function(event) {
+      let styles = event.target.style
+      styles.color = 'blue';
+      styles.border = '2px dotted orange'
+    })
   })
 
-  rightButton.addEventListener('click', () =>{
-  
-  })
 }
-carouselMaker()
+carouselMaker(images)
 

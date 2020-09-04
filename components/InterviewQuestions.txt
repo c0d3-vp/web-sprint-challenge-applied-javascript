@@ -9,7 +9,7 @@
     Is a procedure or function in a computer program that waits for an event to occur.  Like a mouse click, a mouse over, pressing a key etc...
 
 4. Why would we convert a NodeList into an Array?
-    Because a NodeList can be used to access and manipulate DOM elements.
+    Because a NodeList can be used to access and manipulate DOM elements. Convert so we can run array methods.
 
 5. What is a component?
     Components are standalone and reusable pieces of code. They serve the same purpose as JS functions, but work in HTML via a render function.    
