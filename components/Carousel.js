@@ -41,8 +41,8 @@ function carouselMaker(param) {
   rightButton.classList.add('right-button')
   
   carousel.innerText = 'Carousel'
-  leftButton.textContent = 'Left Button'
-  rightButton.innerText = 'right Button'
+  // leftButton.textContent = 'Left Button'
+  // rightButton.innerText = 'right Button'
   
   carousel.appendChild(leftButton)
   carousel.appendChild(rightButton)
@@ -60,10 +60,10 @@ function carouselMaker(param) {
       styles.border = '2px dotted blue'
     })
 
-    leftButton.addEventListener('click', function(event) {
-      let styles = event.target.style
-      styles.color = 'blue';
-      styles.border = '2px dotted orange'
+    rightButton.addEventListener('dblclick', function(event) {
+      let otherStyles = event.target.style
+      otherStyles.color = 'blue';
+      otherStyles.border = '2px dotted orange'
     })
   })
 
